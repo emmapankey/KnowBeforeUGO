@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Forecast</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700|Montserrat|Comfortaa' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="nav">
+		<h1>5 Day Forecast</h1>
+	</div>	
+	<div class="citylocal">
+		<input type="text" id="city" class="inputcity" placeholder="city">
+	    <button id="buttonGetForecast" class="buttonSearch" onclick="forecast.getCity()">Get Forecast</button>
+	</div>	
+	<div id="loading" class="loading" style="display:none">
+		<img src="img/loading.jpg">
+	</div>
+	<div id="noMatch" class="noMatch"></div>
+	<div id="list">
+		<table id="list_dayForecast">
+		</table>	
+	</div>	
+	<script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+	<script src="js/forecast.js"></script>
+
+</body>	
+</html>
