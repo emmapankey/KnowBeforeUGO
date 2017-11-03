@@ -2,12 +2,12 @@ $(document).ready(function () {
 	
 		(function (forecast, $, undefined) {
 	
-			$('#buttonGetForecast').on('click', function () {
+			$('#search').on('click', function () {
 		//Need a button with id=buttonGetForecast
 		//Need a input with id=buttonGetForecast
 				var button = document.getElementById("buttonGetForecast"); 
-				// button.onclick = function () {
-				var city = document.getElementById("city_country").value;
+				// button.onclick = function () {+ "country-input"
+				var city = document.getElementById("city-input" ).value;
 				forecast.getForecast(city);
 				// };
 			});
