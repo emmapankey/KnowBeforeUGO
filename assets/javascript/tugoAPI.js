@@ -11,8 +11,9 @@ $.ajax({
     var generalSafetyInfo = results.safety.description;
     var crimeInfo = "";
     var demonstrationsInfo = "";
+    var terrorismInfo = "";
     var drivingInfo = "";
-    var airTravelInfo = "";
+    var medicalServicesInfo = "";
     
 
 
