@@ -2,13 +2,14 @@ $(document).ready(function () {
 	
 		(function (forecast, $, undefined) {
 	
-			$('#search').on('click', function () {
+			$('#buttonGetForecast').on('click', function () {
 		//Need a button with id=buttonGetForecast
 		//Need a input with id=buttonGetForecast
 				var button = document.getElementById("buttonGetForecast"); 
 				// button.onclick = function () {+ "country-input"
-				var city = document.getElementById("city-input" ).value;
-				forecast.getForecast(city);
+				var city = document.getElementById("city-input").value;
+				var country = document.getElementById("country-input").value;
+				forecast.getForecast(city + "," + country);
 				// };
 			});
 	

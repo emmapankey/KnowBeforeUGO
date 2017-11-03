@@ -30,16 +30,18 @@
 		<div class="col-md-4">
 			<div class="panel panel-default">
 				<div class="panel-body" id=form-panel>
-					<form id="location-search">
-						<label for="location"></label>
-						<p class="instructions">Where do you want to go?</p>
-						<input type="text" id="city-input">
-						<input type="text" id="country-input">
+					<!-- <form id="location-search"> -->
+					<label for="location"></label>
+					<p class="instructions">Where do you want to go?</p>
 					</form>
 					<hr>
-					<form id="search-form">
-						<button id="search" type="search" class="btn btn-primary" value="search">Search</button>
+					<div class="citylocal">
+							<input type="text" value="" id="city-input">
+							<input type="text" value="" id="country-input">
+						<button id="buttonGetForecast" class="buttonSearch">Get Forecast</button>
+					</div>
 					</form>
+
 				</div>
 			</div>
 		</div>
@@ -56,20 +58,19 @@
 				</div>
 			</div>
 		</div>
-	</row>
-	<row>
-		<div class="col-md-4">
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div id="list_dayForecast" class="row"></div>
+		</row>
+		<row>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div id="list">
+						<table id="list_dayForecast">
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
 		</row>
+	
 	</div>
-
-
-
 
 
 	<script src="http://code.jquery.com/jquery-2.1.0.js"></script>
