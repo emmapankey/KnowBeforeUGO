@@ -19,11 +19,32 @@
 	<div class="container">
 		<row>
 			<div class="col-md-12">
-				<div class="jumbotron" id="jumbotron">
-					<div class="panel-body">
-						<h1>KnowBeforeUGO</h1>
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+							    aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+							<a class="navbar-brand" href="#">KnowBeforeUGO</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="active"><a href="index.html">Search<span class="sr-only">(current)</span></a></li>
+								<li><a href="saved-searches.html">My Searches</a></li>
+								<li><a href="#">Sign In</a></li>
+							</ul>
+						</div>
+						<!-- /.navbar-collapse -->
 					</div>
-				</div>
+					<!-- /.container-fluid -->
+				</nav>
 			</div>
 		</row>
 		<div class="col-md-5">
@@ -44,8 +65,9 @@
 			</row>
 			<row>
 				<div class="panel panel-default">
+					<p class="div-title">Current Weather</p>
 					<div id="list">
-						<table id="list_dayForecast">weather
+						<table id="list_dayForecast">
 						</table>
 					</div>
 				</div>
@@ -54,13 +76,25 @@
 		<div class="col-md-7">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div id="tugo-div">tugo panel</div>
+					<div id="tugo-div">
+						<p class="div-title">Travel Information</p>
+						<div id="advisories-div">
+							<p class="heading-title">Advisories</p>
+						</div>
+						<div id="crime-div">
+							<p class="heading-title">Crime</p>
+						</div>
+						<div id="terrorism-div">
+							<p class="heading-title">Terrorism</p>
+						</div>
+						<div id="road-safety-div">
+							<p class="heading-title">Road Safety</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
 
 	<script src="assets/javascript/forecast.js"></script>
 	<script src="assets/javascript/tugoAPI.js"></script>
