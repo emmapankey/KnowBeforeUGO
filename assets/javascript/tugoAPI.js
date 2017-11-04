@@ -19,12 +19,12 @@ $(document).ready(function () {
         })
     }
 
-    $("#buttonGetTravelAdvisory").on("click", function (e) {
+    $("#submitButton").on("click", function (e) {
         e.preventDefault();
 
         //Capture the country name entered by the user
         //Find the country searched by the user in the response object of all countries
-        var userCountry = $("#countryInput").val();
+        var userCountry = $("#country-input").val();
         var matchedCountryID = null;
 
 
@@ -57,9 +57,17 @@ $(document).ready(function () {
     
     // Display country advisory information on page
     function displayCountryDetails(countryDetails) {
+        var advisoryDescription = "";
         var crimeDescription = "";
         var terrorismDescription = "";
+        var roadSafetyDescription = "";
 
+        if (countryDetails.advisoryText !== null) {
+            advisoryDescription = countryDetails.advisoryText;
+            // for (var i = 0; i < countryDetails.advisories.length; i++) {
+            //     var advisoryInfoObj = countryDetails.advisories.advisories[i];
+            //     advisoryDescription = advisoryInfoObj.advisoryText + 
+            }
       
         if (countryDetails.safety !== null) {
             if (countryDetails.safety.safetyInfo != null) {
@@ -69,6 +77,8 @@ $(document).ready(function () {
                         crimeDescription = safetyInfoObj.description;
                     } else if (safetyInfoObj.category === "Terrorism") {
                         terrorismDescription = safetyInfoObj.description;
+                    } else if (safetyInfoObj.category === "Road safety") {
+                        roadSafetyDescription = safetyInfoObj.description;
                     }
                 }
             }
@@ -84,8 +94,9 @@ $(document).ready(function () {
         $(".emptyDiv").append("<h1>Terrorism</h1>")
         $(".emptyDiv").append(displayTerrorismDiv);
         displayTerrorismDiv.text(terrorismDescription);
-        
+    
     }
+
     allCountries();
 
 }); // end of document.ready
