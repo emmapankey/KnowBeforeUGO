@@ -1,0 +1,13 @@
+input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#submitButton {
+    width: 40%;
+    float: right;
+}
+
+.jumbotron {
+    text-align: center;
+}
