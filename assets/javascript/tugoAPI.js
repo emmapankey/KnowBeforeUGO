@@ -26,6 +26,7 @@ $(document).ready(function () {
         //Find the country searched by the user in the response object of all countries
         var userCountry = $("#country-input").val();
         var matchedCountryID = null;
+        console.log(countries);
 
 
         // Append the country code to the api query string and load the info for the country searched by the user with another ajax call
@@ -62,12 +63,12 @@ $(document).ready(function () {
         var terrorismDescription = "";
         var roadSafetyDescription = "";
 
-        if (countryDetails.advisoryText !== null) {
-            advisoryDescription = countryDetails.advisoryText;
-            // for (var i = 0; i < countryDetails.advisories.length; i++) {
-            //     var advisoryInfoObj = countryDetails.advisories.advisories[i];
-            //     advisoryDescription = advisoryInfoObj.advisoryText + 
-            }
+        // if (countryDetails.advisoryText !== null) {
+        //     advisoryDescription = countryDetails.advisoryText;
+        //     // for (var i = 0; i < countryDetails.advisories.length; i++) {
+        //     //     var advisoryInfoObj = countryDetails.advisories.advisories[i];
+        //     //     advisoryDescription = advisoryInfoObj.advisoryText + 
+        //     }
       
         if (countryDetails.safety !== null) {
             if (countryDetails.safety.safetyInfo != null) {
@@ -84,18 +85,18 @@ $(document).ready(function () {
             }
         }
 
-        var displayCrimeDiv = $("<div id='crimeDiv'>");
-        $(".emptyDiv").append("<h1>Crime</h1>")
-        $(".emptyDiv").append(displayCrimeDiv);
-        // displayCrimeDiv.text(countryDetails.safety.safetyInfo[0].description);
-        displayCrimeDiv.text(crimeDescription);
 
-        var displayTerrorismDiv = $("<div id='terrorismDiv'>");
-        $(".emptyDiv").append("<h1>Terrorism</h1>")
-        $(".emptyDiv").append(displayTerrorismDiv);
-        displayTerrorismDiv.text(terrorismDescription);
+        var displayCrimeP = $("<p>");
+        $("#crime-div").append(displayCrimeP)
+        // displayCrimeDiv.text(countryDetails.safety.safetyInfo[0].description);
+        displayCrimeP.text(crimeDescription);
+
+        // var displayTerrorismDiv = $("<div id='terrorismDiv'>");
+        // $(".emptyDiv").append("<h1>Terrorism</h1>")
+        // $(".emptyDiv").append(displayTerrorismDiv);
+        // displayTerrorismDiv.text(terrorismDescription);
     
-    }
+    } // end of displayCountryDetails function
 
     allCountries();
 
