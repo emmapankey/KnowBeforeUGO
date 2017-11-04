@@ -37,7 +37,7 @@ $(document).ready(function () {
 		var country = childSnapshot.val().country;
 
 		//TABLE DATA=====================================================
-		$('#display-searches-table').append(
+		$('#searches-table').append(
 			"<tr><td id='cityDisplay'>" + childSnapshot.val().city +
 			"</td><td id='countryDisplay'>" + childSnapshot.val().country+ "</td></tr>");
 
