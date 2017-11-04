@@ -4,6 +4,9 @@ $(document).ready(function () {
     $("#btnSignOut").hide();
     $("#user-name").html("");
 
+});
+
+
 var config = {
     apiKey: "AIzaSyCmj08LcW2dT_bGaFPFqNcnoID7ZRqzQJw",
     authDomain: "knowbeforugo.firebaseapp.com",
@@ -62,7 +65,7 @@ function showGoodBye() {
     $("#user-name").html("Sign In to Begin");
 }
 
-})
+
 // //Handle Account Status
 // firebase.auth().onAuthStateChanged(user => {
 //     if (user) {
