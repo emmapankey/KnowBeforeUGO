@@ -1,4 +1,13 @@
-body {
-    background: url(../images/background.png);
-    background-repeat: repeat;
-  }
+input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#submitButton {
+    width: 40%;
+    float: right;
+}
+
+.jumbotron {
+    text-align: center;
+}
