@@ -40,6 +40,7 @@ $(document).ready(function () {
         if (matchedCountryID === null) {
             alert("Data for this country is not available");
         }
+
         else {
             $.ajax({
                 url: 'https://api.tugo.com/v1/travelsafe/countries/' + matchedCountryID,
@@ -55,7 +56,7 @@ $(document).ready(function () {
             })
         }
     });
-    
+
     // Display country advisory information on page
     function displayCountryDetails(countryDetails) {
 
@@ -63,59 +64,47 @@ $(document).ready(function () {
         var crimeDescription = "";
         var terrorismDescription = "";
         var roadSafetyDescription = "";
-        var advisoriesExpanded = "";
 
-        if (countryDetails.advisoryText !== null) {
-            advisoryDescription = countryDetails.advisoryText;
+        if (countryDetails.advisories !== null) {
+            advisoryDescription = countryDetails.advisories.description;
         }
 
-      if (countryDetails.advisories !== null) {
-          if (countryDetails.advisories != null) {
-              for (var i = 0; i < countryDetails.advisories.length; i++) {
-                  var advisoriesInfoObj = countryDetails.advisories[i];
-                  if (advisoriesInfoObj.description !== null) {
-                      advisoriesExpanded = advisoriesInfoObj.description;
-                  }
-              }
-          }
-      }
-
-        if (countryDetails.safety !== null) {
-            if (countryDetails.safety.safetyInfo != null) {
-                for (var i = 0; i < countryDetails.safety.safetyInfo.length; i++) {
-                    var safetyInfoObj = countryDetails.safety.safetyInfo[i];
-                    if (safetyInfoObj.category === "Crime") {
-                        crimeDescription = safetyInfoObj.description;
-                    } else if (safetyInfoObj.category === "Terrorism") {
-                        terrorismDescription = safetyInfoObj.description;
-                    } else if (safetyInfoObj.category === "Road safety") {
-                        roadSafetyDescription = safetyInfoObj.description;
-                    }
+    if (countryDetails.safety !== null) {
+        if (countryDetails.safety.safetyInfo != null) {
+            for (var i = 0; i < countryDetails.safety.safetyInfo.length; i++) {
+                var safetyInfoObj = countryDetails.safety.safetyInfo[i];
+                if (safetyInfoObj.category === "Crime") {
+                    crimeDescription = safetyInfoObj.description;
+                } else if (safetyInfoObj.category === "Terrorism") {
+                    terrorismDescription = safetyInfoObj.description;
+                } else if (safetyInfoObj.category === "Road safety") {
+                    roadSafetyDescription = safetyInfoObj.description;
                 }
             }
         }
+    }
 
-        var displayAdvisoryP = $("<p>");
-        $("#advisories-div").append(displayAdvisoryP);
-        displayAdvisoryP.text(advisoryDescription);
+    var displayAdvisoryP = $("<p>");
+    $("#advisories-div").append(displayAdvisoryP);
+    displayAdvisoryP.text(advisoryDescription);
 
-        var displayExpandedAdvisoryP = $("<p>");
-        $(displayAdvisoryP).append(displayExpandedAdvisoryP);
-        displayExpandedAdvisoryP.text(advisoriesExpanded);
+    // var displayExpandedAdvisoryP = $("<p>");
+    // $(displayAdvisoryP).append(displayExpandedAdvisoryP);
+    // displayExpandedAdvisoryP.text(advisoriesExpanded);
 
-        var displayCrimeP = $("<p>");
-        $("#crime-div").append(displayCrimeP);
-        displayCrimeP.text(crimeDescription);
+    var displayCrimeP = $("<p>");
+    $("#crime-div").append(displayCrimeP);
+    displayCrimeP.text(crimeDescription);
 
-        var displayTerrorismP = $("<p>");
-        $("#terrorism-div").append(displayTerrorismP);
-        displayTerrorismP.text(terrorismDescription);
+    var displayTerrorismP = $("<p>");
+    $("#terrorism-div").append(displayTerrorismP);
+    displayTerrorismP.text(terrorismDescription);
 
-        var displayRoadSafetyP = $("<p>");
-        $("#road-safety-div").append(displayRoadSafetyP);
-        displayRoadSafetyP.text(roadSafetyDescription);
+    var displayRoadSafetyP = $("<p>");
+    $("#road-safety-div").append(displayRoadSafetyP);
+    displayRoadSafetyP.text(roadSafetyDescription);
 
-    } // end of displayCountryDetails function
+} // end of displayCountryDetails function
 
     allCountries();
 
