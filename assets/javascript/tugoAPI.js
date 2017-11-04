@@ -58,18 +58,28 @@ $(document).ready(function () {
     
     // Display country advisory information on page
     function displayCountryDetails(countryDetails) {
+
         var advisoryDescription = "";
         var crimeDescription = "";
         var terrorismDescription = "";
         var roadSafetyDescription = "";
+        var advisoriesExpanded = "";
 
-        // if (countryDetails.advisoryText !== null) {
-        //     advisoryDescription = countryDetails.advisoryText;
-        //     // for (var i = 0; i < countryDetails.advisories.length; i++) {
-        //     //     var advisoryInfoObj = countryDetails.advisories.advisories[i];
-        //     //     advisoryDescription = advisoryInfoObj.advisoryText + 
-        //     }
-      
+        if (countryDetails.advisoryText !== null) {
+            advisoryDescription = countryDetails.advisoryText;
+        }
+
+      if (countryDetails.advisories !== null) {
+          if (countryDetails.advisories != null) {
+              for (var i = 0; i < countryDetails.advisories.length; i++) {
+                  var advisoriesInfoObj = countryDetails.advisories[i];
+                  if (advisoriesInfoObj.description !== null) {
+                      advisoriesExpanded = advisoriesInfoObj.description;
+                  }
+              }
+          }
+      }
+
         if (countryDetails.safety !== null) {
             if (countryDetails.safety.safetyInfo != null) {
                 for (var i = 0; i < countryDetails.safety.safetyInfo.length; i++) {
@@ -85,17 +95,26 @@ $(document).ready(function () {
             }
         }
 
+        var displayAdvisoryP = $("<p>");
+        $("#advisories-div").append(displayAdvisoryP);
+        displayAdvisoryP.text(advisoryDescription);
+
+        var displayExpandedAdvisoryP = $("<p>");
+        $(displayAdvisoryP).append(displayExpandedAdvisoryP);
+        displayExpandedAdvisoryP.text(advisoriesExpanded);
 
         var displayCrimeP = $("<p>");
-        $("#crime-div").append(displayCrimeP)
-        // displayCrimeDiv.text(countryDetails.safety.safetyInfo[0].description);
+        $("#crime-div").append(displayCrimeP);
         displayCrimeP.text(crimeDescription);
 
-        // var displayTerrorismDiv = $("<div id='terrorismDiv'>");
-        // $(".emptyDiv").append("<h1>Terrorism</h1>")
-        // $(".emptyDiv").append(displayTerrorismDiv);
-        // displayTerrorismDiv.text(terrorismDescription);
-    
+        var displayTerrorismP = $("<p>");
+        $("#terrorism-div").append(displayTerrorismP);
+        displayTerrorismP.text(terrorismDescription);
+
+        var displayRoadSafetyP = $("<p>");
+        $("#road-safety-div").append(displayRoadSafetyP);
+        displayRoadSafetyP.text(roadSafetyDescription);
+
     } // end of displayCountryDetails function
 
     allCountries();
