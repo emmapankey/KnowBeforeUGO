@@ -1,92 +1,91 @@
 $(document).ready(function () {
 
-var safetyApp = {};
+    var countries = null;
 
-// Ajax call for tugo.com
-safetyApp.allCountries = function () {
+    // Function for the Ajax call to the tugo.com travel safety API to obtain an object listing
+    // the 229 country names that the API has data on.
+    function allCountries() {
 
-    return $.ajax({
-        url: 'https://api.tugo.com/v1/travelsafe/countries/',
-        method: 'GET',
-        dataType: 'json',
-        headers: {
-            'X-Auth-API-Key': '25y3249xkxg49uqkh6v6zcmz'
-        }
-    });
-}
+        $.ajax({
+            url: 'https://api.tugo.com/v1/travelsafe/countries/',
+            method: 'GET',
+            dataType: 'json',
+            headers: {
+                'X-Auth-API-Key': '25y3249xkxg49uqkh6v6zcmz'
+            }
+        }).done(function (response) {
+            countries = response;
+            console.log(countries);
+        })
+    }
 
-safetyApp.events = function () {
-    // When the user types in the country name and hits enter,
-    // the app needs to load list of countries, find the country that
-    // the user searched, and then attach/remember the country code
-    $('#buttonGetTravelAdvisory').on('click', function (e) {
+    $("#buttonGetTravelAdvisory").on("click", function (e) {
         e.preventDefault();
 
-        //Load all country names 
-        const allCountries = safetyApp.allCountries();
+        //Capture the country name entered by the user
+        //Find the country searched by the user in the response object of all countries
+        var userCountry = $("#countryInput").val();
+        var matchedCountryID = null;
 
-        //Then look for the one that the user enters
-        $.when(allCountries).done(function (countries) {
-            var userCountry = $('.city').val();
-            userCountry = safetyApp.upperCaseAll(userCountry);
-            safetyApp.userCountry = userCountry;
 
-            //Filter all the countries and show only that country's name and code
-            var filteredCountry = countries.filter(function (country) {
-                return country.englishName === safetyApp.userCountry;
-            });
-
-            //Variables
-            safetyApp.filteredCountryName = filteredCountry[0].englishName; //name
-            safetyApp.filteredCountryCode = filteredCountry[0].id; //country code
-            safetyApp.showCountryInfo(safetyApp.filteredCountryCode); //get api for that country and load its info
-
-            //Button resets to original state
-            $('button').empty();
-            $('button').append(buttonRdyText);
-        });
-    });
-}
-
-//When the user enters lowercase string, uppercase all first letters
-safetyApp.upperCaseAll = function (string) {
-    var letters = string.split(" ");
-    for (var i = 0; i < letters.length; i++) {
-        var j = letters[i].charAt(0).toUpperCase();
-        letters[i] = j + letters[i].substr(1);
-    }
-    return letters.join(" ");
-}
-
-// Append the country code to the api query string and load country's info
-safetyApp.showCountryInfo = function (code) {
-    $.ajax({
-        url: 'https://api.tugo.com/v1/travelsafe/countries/' + code,
-        method: 'GET',
-        dataType: 'json',
-        headers: {
-            'X-Auth-API-Key': '25y3249xkxg49uqkh6v6zcmz'
+        // Append the country code to the api query string and load the info for the country searched by the user with another ajax call
+        for (var i = 0; i < countries.length; i++) {
+            var country = countries[i];
+            if (country.englishName === userCountry) {
+                matchedCountryID = country.id
+            }
         }
-    }).then(function (results) {
-        // After accessing the api for the country, 
-        // show all of its safety advisories
 
-        console.log(results.safety);
+        if (matchedCountryID === null) {
+            alert("Data for this country is not available");
+        }
+        else {
+            $.ajax({
+                url: 'https://api.tugo.com/v1/travelsafe/countries/' + matchedCountryID,
+                method: 'GET',
+                dataType: 'json',
+                headers: {
+                    'X-Auth-API-Key': '25y3249xkxg49uqkh6v6zcmz'
+                }
+            }).done(function (response) {
+                var countryDetails = response;
+                console.log(countryDetails);
+                displayCountryDetails(countryDetails);
+            })
+        }
+    });
+    
+    // Display country advisory information on page
+    function displayCountryDetails(countryDetails) {
+        var crimeDescription = "";
+        var terrorismDescription = "";
 
-    // This is where data needs to be displayed
-    // var generalSafetyInfo = results.safety.description;
-    // var crimeInfo = "";
-    // var demonstrationsInfo = "";
-    // var terrorismInfo = "";
-    // var drivingInfo = "";
-    // var medicalServicesInfo = "";
+      
+        if (countryDetails.safety !== null) {
+            if (countryDetails.safety.safetyInfo != null) {
+                for (var i = 0; i < countryDetails.safety.safetyInfo.length; i++) {
+                    var safetyInfoObj = countryDetails.safety.safetyInfo[i];
+                    if (safetyInfoObj.category === "Crime") {
+                        crimeDescription = safetyInfoObj.description;
+                    } else if (safetyInfoObj.category === "Terrorism") {
+                        terrorismDescription = safetyInfoObj.description;
+                    }
+                }
+            }
+        }
 
-    })
-};
+        var displayCrimeDiv = $("<div id='crimeDiv'>");
+        $(".emptyDiv").append("<h1>Crime</h1>")
+        $(".emptyDiv").append(displayCrimeDiv);
+        // displayCrimeDiv.text(countryDetails.safety.safetyInfo[0].description);
+        displayCrimeDiv.text(crimeDescription);
 
+        var displayTerrorismDiv = $("<div id='terrorismDiv'>");
+        $(".emptyDiv").append("<h1>Terrorism</h1>")
+        $(".emptyDiv").append(displayTerrorismDiv);
+        displayTerrorismDiv.text(terrorismDescription);
+        
+    }
+    allCountries();
 
-safetyApp.events();
-safetyApp.allCountries();
-safetyApp.showCountryInfo();
-
-});
+}); // end of document.ready
