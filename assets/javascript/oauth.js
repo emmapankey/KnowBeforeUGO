@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $("#btnSignOut").hide();
-    $("#user-name").html("");
+    $("#user-name").hide();
 
 });
 
@@ -19,12 +19,6 @@ firebase.initializeApp(config);
 
 var provider = new firebase.auth.GoogleAuthProvider();
 var user;
-
-// $(document).ready(function () {
-//     $("#btnSignOut").hide();
-//     $("#user-name").html("Sign In to Begin");
-//     alert("this works");
-// })
 
 
 function signIn() {
@@ -62,7 +56,6 @@ function showWelcome() {
 function showGoodBye() {
     $("#btnSignIn").show();
     $("#btnSignOut").hide();
-    $("#user-name").html("Sign In to Begin");
 }
 
 
