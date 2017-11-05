@@ -2,6 +2,14 @@ $(document).ready(function () {
 
     var countries = null;
 
+    // show loading gif when the Ajax call starts
+    // hide the loading gif once the Ajax call stops
+    $(document).ajaxStart(function () {
+        $("#loading").show();
+    }).ajaxStop(function () {
+        $("#loading").hide();
+    });
+
     // Function for the Ajax call to the tugo.com travel safety API to obtain an object listing
     // the 229 country names that the API has data on.
     function allCountries() {
