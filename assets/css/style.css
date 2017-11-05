@@ -1,3 +1,11 @@
+#loading {
+    margin: 0, auto;
+}
+
+#loadingDiv {
+    margin: 0, auto;
+}
+
 .div-title {
     font-size: 20px;
     font-weight: 500;
