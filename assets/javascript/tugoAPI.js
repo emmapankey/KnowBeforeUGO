@@ -35,9 +35,19 @@ $(document).ready(function () {
         //Capture the country name entered by the user
         //Find the country searched by the user in the response object of all countries
         var userCountry = $("#country-input").val();
+        userCountry = firstLetterToUpperCase(userCountry);
         var matchedCountryID = null;
         console.log(countries);
 
+        //When the user enters lowercase string, uppercase all first letters
+        function firstLetterToUpperCase (string) {
+            var letters = string.split(" ");
+            for (var i = 0; i < letters.length; i++) {
+                var j = letters[i].charAt(0).toUpperCase();
+                letters[i] = j + letters[i].substr(1);
+            }
+            return letters.join(" ");
+        }
 
         // Append the country code to the api query string and load the info for the country searched by the user with another ajax call
         for (var i = 0; i < countries.length; i++) {
