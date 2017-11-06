@@ -48,6 +48,8 @@ function signOut() {
 }
 
 function showWelcome() {
+    console.log("this is working");
+    console.log(user.displayName);
     $("#btnSignOut").show();
     $("#btnSignIn").hide();
     $("#user-name").html("Welcome " + user.displayName);
