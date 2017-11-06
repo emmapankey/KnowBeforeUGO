@@ -4,6 +4,15 @@ $(document).ready(function () {
     $("#btnSignOut").hide();
     $("#user-name").html("");
 
+    //Handle Account Status
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            showWelcome();
+        } else {
+            showGoodBye();
+        }
+    });
+
 });
 
 
@@ -76,13 +85,6 @@ function showGoodBye() {
     $("#btnSignOut").hide();
 }
 
-
-// //Handle Account Status
-// firebase.auth().onAuthStateChanged(user => {
-//     if (user) {
-//         window.location = 'index.html'; //After successful login, user will be redirected to home.html
-//     }
-// });
 
 
 
