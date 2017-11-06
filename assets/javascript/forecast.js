@@ -18,7 +18,7 @@ $(document).ready(function () {
                 // var lat = 37.8;
                 // var long = -122.4;
                 var key = "af271888d996ac3d";
-                var urlAPI = "http://api.wunderground.com/api/" + key + "/features/forecast/q/" + value + ".json";
+                var urlAPI = "https://api.wunderground.com/api/" + key + "/features/forecast/q/" + value + ".json";
                 // var urlAPI = "http://api.wunderground.com/api/" + key + "/features/forecast/q/" + value + ".json";37.8,-122.4
                 http: //api.wunderground.com/api/af271888d996ac3d/planner_MMDDMMDD/q/CA/San_Francisco.json
                     // Assuming that the div or any other HTML element has the ID = loading and it contains the necessary loading image.
