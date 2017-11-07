@@ -1,3 +1,7 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
 #loading {
     margin: 0, auto;
 }
@@ -22,13 +26,14 @@ input {
 }
 
 #submitButton {
-    width: 40%;
+    width: 30%;
     float: right;
+    background-color: #5E807F;
+    border: none;
 }
 
 th, td {
     border-bottom: 1px solid #ddd;
-    padding-right: 100px;
     padding-top: 10px;
 }
 
@@ -38,4 +43,59 @@ table {
 
 button {
     float: right;
+    margin-left: 10px;
+}
+
+#main-navigation {
+    margin-bottom: 0px;
+    float: right;
+    border-bottom: none;
+    margin-right: 54px;
+    margin-top: 50px;
+}
+
+.navbar-brand {
+    font-size: 50px;
+}
+
+.btn.btn-default.navbar-btn {
+    background-color: transparent;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: white;
+}
+
+.jumbotron {
+    padding-top: 20px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+.panel-default>.panel-heading {
+    background-color: #5E807F;
+    color: white;
+    border: 0px;
+}
+
+.panel.panel-default {
+    border-color: white;
+    border: none;
+}
+
+.panel-title {
+    font-weight: bold;
+}
+
+#section-title {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#list_dayForecast {
+    width: 100%;
 }
