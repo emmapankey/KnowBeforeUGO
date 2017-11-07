@@ -1,9 +1,9 @@
-// Initialize map function which is preset to center on the coordinates for Washington, DC
+// Initialize map function which is preset to center on the coordinates for Boston, MA
 // function is called in the script located in index.html
 function initMap(){
     var options = {
-        zoom:16,
-        center:{lat:38.9072,lng:77.0369}
+        zoom:15,
+        center:{lat:42.3601,lng:-71.0589}
     }
 
     var map = new google.maps.Map(document.getElementById('map'), options);
@@ -34,20 +34,20 @@ function geocodeAddress(geocoder, resultsMap) {
     });
   }
 
-// //Is only adding place info to the init map
-//   var infowindow = new google.maps.InfoWindow();
-//   var service = new google.maps.places.PlacesService(map);
-//   service.getDetails({placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'}, function(place, status) {
-//     if (status === google.maps.places.PlacesServiceStatus.OK) {
-//       var marker = new google.maps.Marker({
-//         map: map,
-//         position: place.geometry.location
-//       });
-//       google.maps.event.addListener(marker, 'click', function() {
-//         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-//           'Place ID: ' + place.place_id + '<br>' +
-//           place.formatted_address + '</div>');
-//         infowindow.open(map, this);
-//       });
-//     }
-//   });
+//Is only adding place info to the init map
+  var infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.getDetails({placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'}, function(place, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+          'Place ID: ' + place.place_id + '<br>' +
+          place.formatted_address + '</div>');
+        infowindow.open(map, this);
+      });
+    }
+  });
