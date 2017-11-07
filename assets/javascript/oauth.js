@@ -4,15 +4,6 @@ $(document).ready(function () {
     $("#btnSignOut").hide();
     $("#user-name").html("");
 
-    //Handle Account Status
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            showWelcome();
-        } else {
-            showGoodBye();
-        }
-    });
-
 });
 
 
@@ -28,6 +19,16 @@ firebase.initializeApp(config);
 
 var provider = new firebase.auth.GoogleAuthProvider();
 var user;
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        console.log("you are logged in");
+        showWelcome();
+    } else {
+        console.log("you arent logged in");
+        showGoodBye();
+    }
+   });
 
 
 function signIn() {
@@ -73,8 +74,6 @@ function signOut() {
 
 
 function showWelcome() {
-    console.log("this is working");
-    console.log(user.displayName);
     $("#btnSignOut").show();
     $("#btnSignIn").hide();
     $("#user-name").html("Welcome " + user.displayName);

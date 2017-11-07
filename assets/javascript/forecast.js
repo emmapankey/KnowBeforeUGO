@@ -3,8 +3,6 @@ $(document).ready(function () {
         (function (forecast, $, undefined) {
     
             $('#submitButton').on('click', function () {
-        //Need a button with id=buttonGetForecast
-        //Need a input with id=buttonGetForecast
                 var button = document.getElementById("submitButton"); 
                 // button.onclick = function () {
                 var city = document.getElementById("city-input").value;
