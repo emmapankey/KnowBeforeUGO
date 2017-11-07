@@ -21,7 +21,11 @@ var provider = new firebase.auth.GoogleAuthProvider();
 var user;
 
 firebase.auth().onAuthStateChanged(function(user) {
-    window.user = user; // user is undefined if no user signed in
+    if (user) {
+        console.log("you are logged in");
+    } else {
+        console.log("you arent logged in");
+    }
    });
 
 
