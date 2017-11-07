@@ -19,7 +19,7 @@ $(document).ready(function () {
             method: 'GET',
             dataType: 'json',
             headers: {
-                'X-Auth-API-Key': '25y3249xkxg49uqkh6v6zcmz'
+                'X-Auth-API-Key': 'kxque5awprz33tnwz45ma33s'
             }
         }).done(function (response) {
             countries = response;
@@ -27,17 +27,15 @@ $(document).ready(function () {
         })
     }
 
+    //Capture the country name entered by the user
     $("#submitButton").on("click", function (e) {
         e.preventDefault();
 
         clearTugoData();
 
-        //Capture the country name entered by the user
-        //Find the country searched by the user in the response object of all countries
         var userCountry = $("#country-input").val();
         userCountry = firstLetterToUpperCase(userCountry);
         var matchedCountryID = null;
-        console.log(countries);
 
         //When the user enters lowercase string, uppercase all first letters
         function firstLetterToUpperCase (string) {
@@ -49,7 +47,7 @@ $(document).ready(function () {
             return letters.join(" ");
         }
 
-        // Append the country code to the api query string and load the info for the country searched by the user with another ajax call
+        //Find the country searched by the user in the response object of all countries
         for (var i = 0; i < countries.length; i++) {
             var country = countries[i];
             if (country.englishName === userCountry) {
@@ -58,16 +56,26 @@ $(document).ready(function () {
         }
 
         if (matchedCountryID === null) {
-            alert("Data for this country is not available");
+            // alert("Data for this country is not available");
+            // $("#noCountryDataModal").append(data-backdrop);
+            // $("#noCountryDataModal").append(data-keyboard)
+            $("#noCountryDataModal").modal({
+                backdrop: true,
+                keyboard: true,
+                focus: true
+            })
+
+            $("#noCountryData").modal('show')
         }
 
+        // Add the matched country code to the api query string and load the info for the country searched by the user with another ajax call
         else {
             $.ajax({
                 url: 'https://api.tugo.com/v1/travelsafe/countries/' + matchedCountryID,
                 method: 'GET',
                 dataType: 'json',
                 headers: {
-                    'X-Auth-API-Key': '25y3249xkxg49uqkh6v6zcmz'
+                    'X-Auth-API-Key': 'kxque5awprz33tnwz45ma33s'
                 }
             }).done(function (response) {
                 var countryDetails = response;
@@ -75,7 +83,7 @@ $(document).ready(function () {
                 displayCountryDetails(countryDetails);
             })
         }
-    });
+    }); //end of click event
 
     // Display country advisory information on page
     function displayCountryDetails(countryDetails) {
@@ -122,7 +130,7 @@ $(document).ready(function () {
 
     } // end of displayCountryDetails function
 
-    // clears the data displayed from prior calls to the TuGo API
+    // clears the data displayed from prior searches
     function clearTugoData() {
         $("#advisories-div").empty();
         $("#crime-div").empty();
