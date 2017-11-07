@@ -23,8 +23,10 @@ var user;
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("you are logged in");
+        showWelcome();
     } else {
         console.log("you arent logged in");
+        showGoodBye();
     }
    });
 
