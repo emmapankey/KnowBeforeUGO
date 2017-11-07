@@ -1,14 +1,15 @@
 $(document).ready(function () {
 	//FIREBASE=========================================================
-    var config = {
-        apiKey: "AIzaSyCQrXoV53FrxCll6Hau4DUDhCdIfZOCcAk",
-        authDomain: "travel-app-436fa.firebaseapp.com",
-        databaseURL: "https://travel-app-436fa.firebaseio.com",
-        projectId: "travel-app-436fa",
-        storageBucket: "travel-app-436fa.appspot.com",
-        messagingSenderId: "42951308793"
-      };
-      firebase.initializeApp(config);    
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyCmj08LcW2dT_bGaFPFqNcnoID7ZRqzQJw",
+		authDomain: "knowbeforugo.firebaseapp.com",
+		databaseURL: "https://knowbeforugo.firebaseio.com",
+		projectId: "knowbeforugo",
+		storageBucket: "knowbeforugo.appspot.com",
+		messagingSenderId: "172400475054"
+	};
+	firebase.initializeApp(config);
 	//VARIABLES=========================================================
 	var database = firebase.database();
 
@@ -39,7 +40,7 @@ $(document).ready(function () {
 		//TABLE DATA=====================================================
 		$('#searches-table').append(
 			"<tr><td id='cityDisplay'>" + childSnapshot.val().city +
-			"</td><td id='countryDisplay'>" + childSnapshot.val().country+ "</td></tr>");
+			"</td><td id='countryDisplay'>" + childSnapshot.val().country + "</td></tr>");
 
 	});
 
