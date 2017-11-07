@@ -21,13 +21,8 @@ var provider = new firebase.auth.GoogleAuthProvider();
 var user;
 
 firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-    } else {
-      // No user is signed in.
-    }
-  });
-
+    window.user = user; // user is undefined if no user signed in
+   });
 
 
 function signIn() {
@@ -56,25 +51,23 @@ function signOut() {
     });
 }
 
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.local)
-.then(function() {
-  // Existing and future Auth states are now persisted in the current
-  // session only. Closing the window would clear any existing state even
-  // if a user forgets to sign out.
-  // User will stay signed in.
-  // New sign-in will be persisted with session persistence.
-  return firebase.auth().signInWithPopup(provider);
-})
-.catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-});
+// firebase.auth().setPersistence(firebase.auth.Auth.Persistence.local)
+// .then(function() {
+//   // Existing and future Auth states are now persisted in the current
+//   // session only. Closing the window would clear any existing state even
+//   // if a user forgets to sign out.
+//   // User will stay signed in.
+//   // New sign-in will be persisted with session persistence.
+//   return firebase.auth().signInWithPopup(provider);
+// })
+// .catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+// });
 
 
 function showWelcome() {
-    console.log("this is working");
-    console.log(user.displayName);
     $("#btnSignOut").show();
     $("#btnSignIn").hide();
     $("#user-name").html("Welcome " + user.displayName);
