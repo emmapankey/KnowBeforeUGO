@@ -100,3 +100,7 @@ a {
 #list_dayForecast {
     width: 100%;
 }
+
+#form-panel {
+    padding-top: 0px;
+}
