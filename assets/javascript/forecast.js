@@ -3,27 +3,18 @@ $(document).ready(function () {
         (function (forecast, $, undefined) {
     
             $('#submitButton').on('click', function () {
-                var button = document.getElementById("submitButton"); 
-                // button.onclick = function () {
                 var city = document.getElementById("city-input").value;
                 var country = document.getElementById("country-input").value;
                 forecast.getForecast(city+","+country);
-                // };
+
             });
     
             //Get forecast from JSON response from the API
             forecast.getForecast = function (value) {
-                // var lat = 37.8;
-                // var long = -122.4;
                 var key = "af271888d996ac3d";
                 var urlAPI = "https://api.wunderground.com/api/" + key + "/features/forecast/q/" + value + ".json";
-                // var urlAPI = "http://api.wunderground.com/api/" + key + "/features/forecast/q/" + value + ".json";37.8,-122.4
+
                 http: //api.wunderground.com/api/af271888d996ac3d/planner_MMDDMMDD/q/CA/San_Francisco.json
-                    // Assuming that the div or any other HTML element has the ID = loading and it contains the necessary loading image.
-                    var loading = $("#loading");
-                $(document).ajaxStart(function () {
-                    loading.show();
-                });
     
                 $.ajax({
                     url: urlAPI,
@@ -33,22 +24,15 @@ $(document).ready(function () {
                         //Clear last zip code search before
                         $('#list_dayForecast').empty();
     
-                        //Hide loading icon
-                        $(document).ajaxStop(function () {
-                            loading.hide();
-                        });
-    
-                        //If no info was founded with the zip code
+                        //If no info was founded with the city and country
     
                         if (parsed_json.forecast == null) {
-                            //Hide the loading icon
-                            $("#loading").hide();
-                            $("#noMatch").append(parsed_json.response.error.description);
+                            $("#list_dayForecast").append(parsed_json.response.error.description);
     
-                            //If we get some forecast for the given zip code
+                            //If we get some forecast for the  city and country
                         } else {
                             //Delete message if it was for the previous search
-                            $("#noMatch").empty();
+                            $("#list_dayForecast").empty();
     
                             var infoForecastLength = parsed_json.forecast.simpleforecast.forecastday.length;
     
