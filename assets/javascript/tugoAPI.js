@@ -34,7 +34,8 @@ $(document).ready(function () {
             clearTugoData();
     
             genericText();
-    
+	
+			// This function adds data from the sample object taken from the API documentation. We are using this for our presentation because the API's server is currently down.
             function genericText() {
         
                 var displayAdvisoryP = $("<p>");
@@ -86,6 +87,7 @@ $(document).ready(function () {
             }
     
             if (matchedCountryID === null) {
+				// Need to finish modal when API server is back up
                 // alert("Data for this country is not available");
                 // $("#noCountryDataModal").append(data-backdrop);
                 // $("#noCountryDataModal").append(data-keyboard)
@@ -142,9 +144,7 @@ $(document).ready(function () {
                 }
             }
     
-          
-    
-            //Need to finish vaccines and food/water
+            //Need to finish vaccines and food/water once the API server is back up
             // if (countryDetails.health !== null) {
             //     if (countryDetails.health.diseasesAndVaccinesInfo != null) {
             //         for (var i = 0; i < countryDetails.health.diseasesAndVaccinesInfo; i++) {
