@@ -36,13 +36,14 @@ $(document).ready(function () {
 		var city = childSnapshot.val().city;
 		var country = childSnapshot.val().country;
 		// var timeAdded = childSnapshot.val().timeAdded;
-		var Enteredtime = moment(childSnapshot.val().timeAdded, 'HH:mm');
+		// var Enteredtime = moment(childSnapshot.val().timeAdded, 'HH:mm');
 
 		//TABLE DATA=====================================================
-		$('table').append(
+		
+		$('#searches-table').append(
 			"<tr><td>" + childSnapshot.val().city +
 			"</td><td>" + childSnapshot.val().country +
-			"</td><td>" + Enteredtime + "</td></tr>");
+			"</td></tr>");
 
 	});
 
