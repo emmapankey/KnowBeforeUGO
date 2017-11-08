@@ -1,21 +1,20 @@
 $(document).ready(function () {
 	//FIREBASE=========================================================
 	// Initialize Firebase
-	var config = {
-		apiKey: "AIzaSyCmj08LcW2dT_bGaFPFqNcnoID7ZRqzQJw",
-		authDomain: "knowbeforugo.firebaseapp.com",
-		databaseURL: "https://knowbeforugo.firebaseio.com",
-		projectId: "knowbeforugo",
-		storageBucket: "knowbeforugo.appspot.com",
-		messagingSenderId: "172400475054"
-	};
-	firebase.initializeApp(config);
+	// var config = {
+	// 	apiKey: "AIzaSyCmj08LcW2dT_bGaFPFqNcnoID7ZRqzQJw",
+	// 	authDomain: "knowbeforugo.firebaseapp.com",
+	// 	databaseURL: "https://knowbeforugo.firebaseio.com",
+	// 	projectId: "knowbeforugo",
+	// 	storageBucket: "knowbeforugo.appspot.com",
+	// 	messagingSenderId: "172400475054"
+	// };
+	// firebase.initializeApp(config);
 	//VARIABLES=========================================================
 	var database = firebase.database();
 
 	// CAPTURE BUTTON CLICK
-	$("#submitButton").on("click", function () {
-
+	$(document.body).on("click", "#submitButton", function () {
 		//VALUES FOR EACH VARIABLE IN HTML
 		var city = $('#city-input').val().trim();
 		var country = $('#country-input').val().trim();
@@ -27,8 +26,8 @@ $(document).ready(function () {
 			timeAdded: firebase.database.ServerValue.TIMESTAMP
 		});
 		// NO REFRESH
-		$("input").val('');
-		return false;
+		// $("input").val('');
+		// return false;
 	});
 
 	//ON CLICK CHILD FUNCTION

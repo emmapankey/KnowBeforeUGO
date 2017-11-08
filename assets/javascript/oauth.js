@@ -2,20 +2,20 @@
 $(document).ready(function () {
 
     $("#btnSignOut").hide();
-    $("#user-name").html("");
+    // $("#user-name").html("");
 
 });
 
 
-// var config = {
-//     apiKey: "AIzaSyCmj08LcW2dT_bGaFPFqNcnoID7ZRqzQJw",
-//     authDomain: "knowbeforugo.firebaseapp.com",
-//     databaseURL: "https://knowbeforugo.firebaseio.com",
-//     projectId: "knowbeforugo",
-//     storageBucket: "knowbeforugo.appspot.com",
-//     messagingSenderId: "172400475054"
-// };
-// firebase.initializeApp(config);
+var config = {
+    apiKey: "AIzaSyCmj08LcW2dT_bGaFPFqNcnoID7ZRqzQJw",
+    authDomain: "knowbeforugo.firebaseapp.com",
+    databaseURL: "https://knowbeforugo.firebaseio.com",
+    projectId: "knowbeforugo",
+    storageBucket: "knowbeforugo.appspot.com",
+    messagingSenderId: "172400475054"
+};
+firebase.initializeApp(config);
 
 var provider = new firebase.auth.GoogleAuthProvider();
 var user;
