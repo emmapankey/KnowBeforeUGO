@@ -125,10 +125,15 @@ a:focus {
 @media screen and (max-width: 980px) {
     #main-navigation {
         margin-bottom: 0px;
+        margin: 0 auto;
         border-bottom: none;
         float: none;
         text-align: center;
         
+    }
+    
+    ul li {
+        text-align: center;
     }
 }
 
