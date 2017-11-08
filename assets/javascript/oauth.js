@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $("#btnSignOut").hide();
-    $("#user-name").html("");
+    // $("#user-name").html("");
 
 });
 
