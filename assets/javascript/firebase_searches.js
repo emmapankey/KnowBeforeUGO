@@ -35,11 +35,13 @@ $(document).ready(function () {
 
 		var city = childSnapshot.val().city;
 		var country = childSnapshot.val().country;
+		// var timeAdded = childSnapshot.val().timeAdded;
 
 		//TABLE DATA=====================================================
-		$('#searches-table').append(
-			"<tr><td id='cityDisplay'>" + childSnapshot.val().city +
-			"</td><td id='countryDisplay'>" + childSnapshot.val().country + "</td></tr>");
+		$('table').append(
+			"<tr><td>" + childSnapshot.val().city +
+			"</td><td>" + childSnapshot.val().country + 
+			"</td><td>" + childSnapshot.val().timeAdded + "</td></tr>");
 
 	});
 
