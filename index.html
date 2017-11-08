@@ -29,28 +29,25 @@
 	<row>
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<div class="container" id="header">
+				<div class="container">
 					<div class="col-md-6">
 						<h1 class="page-title">KnowBeforeUGO</h1>
 					</div>
 					<div class="col-md-6">
-						<div class="text-center">
-						<ul class="nav nav-tabs" id="main-navigation">
-							<li role="presentation"><button type="button" class="btn btn-default navbar-btn" id="searchButton"><a href="index.html">Search</a></button></li>
-							<li role="presentation"><button type="button" class="btn btn-default navbar-btn"><a href="saved-searches.html">My Searches</a></button></li>
-							<li role="presentation" class="active"><button id="btnSignIn" type="button" class="btn btn-default navbar-btn" onclick="signIn()">Sign in</button>
-								<button type="button" class="btn btn-default navbar-btn" id="btnSignOut" onclick="signOut()">Sign Out</button></li>
-						</ul>
+						<div id="main-navigation">
+							<button type="button" class="btn btn-default navbar-btn" id="searchButton"><a href="index.html">Search</a></button>
+							<button type="button" class="btn btn-default navbar-btn"><a href="saved-searches.html">My Searches</a></button>
+							<button id="btnSignIn" type="button" class="btn btn-default navbar-btn" onclick="signIn()">Sign in</button>
+							<button type="button" class="btn btn-default navbar-btn" id="btnSignOut" onclick="signOut()">Sign Out</button>
+						</div>
 					</div>
-				</div>
-					
-					
+
 				</div>
 			</div>
-			
+
 		</div>
 	</row>
-	
+
 	<div class="container">
 
 		<h2 class="text-center" id="user-name"></h2>
@@ -159,19 +156,19 @@
 			<script src="assets/javascript/firebase_searches.js"></script>
 			<script src="assets/javascript/google_mapsAPI.js"></script>
 
-		<!-- google maps script -->
-		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpd3HQ94w26Zyfo7tD1EeRSibk8eYWCVc&callback=initMap">
-		</script>
+			<!-- google maps script -->
+			</script>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpd3HQ94w26Zyfo7tD1EeRSibk8eYWCVc&callback=initMap">
+			</script>
 
-		<!-- google places script -->
-		<!-- <script async defer
+			<!-- google places script -->
+			<!-- <script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpd3HQ94w26Zyfo7tD1EeRSibk8eYWCVc&libraries=places&callback=initMap">
 			</script> -->
 
-		<!-- link to CSS -->
-		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+			<!-- link to CSS -->
+			<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+			<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </body>
 
 </html>
