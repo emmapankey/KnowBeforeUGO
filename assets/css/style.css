@@ -40,6 +40,7 @@ th,
 td {
     border-bottom: 1px solid #ddd;
     padding-top: 10px;
+    width: 33%;
 }
 
 table {

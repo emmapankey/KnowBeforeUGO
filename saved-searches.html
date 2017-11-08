@@ -25,21 +25,27 @@
             <div class="col-md-12">
                 <div class="jumbotron">
                     <div class="container">
-                        <ul class="nav nav-tabs" id="main-navigation">
-                            <li role="presentation"><button type="button" class="btn btn-default navbar-btn" id="searchButton"><a href="index.html">Search</a></button></li>
-                            <li role="presentation"><button type="button" class="btn btn-default navbar-btn"><a href="saved-searches.html">My Searches</a></button></li>
-                            <li role="presentation" class="active"><button id="btnSignIn" type="button" class="btn btn-default navbar-btn" onclick="signIn()">Sign in</button>
-                                <button type="button" class="btn btn-default navbar-btn" id="btnSignOut" onclick="signOut()">Sign Out</button></li>
-                        </ul>
-                        <h1 class="page-title">KnowBeforeUGO</h1>
-                        <hr>
+                        <div class="col-md-6">
+                            <h1 class="page-title">KnowBeforeUGO</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="nav nav-tabs" id="main-navigation">
+                                <li role="presentation"><button type="button" class="btn btn-default navbar-btn" id="searchButton"><a href="index.html">Search</a></button></li>
+                                <li role="presentation"><button type="button" class="btn btn-default navbar-btn"><a href="saved-searches.html">My Searches</a></button></li>
+                                <li role="presentation" class="active"><button id="btnSignIn" type="button" class="btn btn-default navbar-btn" onclick="signIn()">Sign in</button>
+                                    <button type="button" class="btn btn-default navbar-btn" id="btnSignOut" onclick="signOut()">Sign Out</button></li>
+                            </ul>
+                        </div>
+
+
                     </div>
                 </div>
+
             </div>
         </row>
         <div class="container">
             <h2 class="text-center" id="user-name"></h2>
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Saved Searches</h3>
@@ -50,6 +56,7 @@
                                 <tr>
                                     <th>City</th>
                                     <th>Country</th>
+                                    <th>Time Added</th>
                                 </tr>
                             </table>
                         </div>
