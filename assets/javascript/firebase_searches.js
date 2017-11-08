@@ -15,7 +15,6 @@ $(document).ready(function () {
 
 	// CAPTURE BUTTON CLICK
 	$(document.body).on("click", "#submitButton", function () {
-	// $("#submitButton").on("click", function () {
 		//VALUES FOR EACH VARIABLE IN HTML
 		var city = $('#city-input').val().trim();
 		var country = $('#country-input').val().trim();
