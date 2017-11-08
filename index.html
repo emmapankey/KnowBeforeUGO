@@ -9,7 +9,7 @@
 
 	<!-- link to jquery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
+	    crossorigin="anonymous"></script>
 	<!-- link to firebase -->
 	<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
 	<!-- link to bootstrap -->
@@ -26,56 +26,64 @@
 <body>
 
 	<!-- <body background="assets/images/background-map-2.png"> -->
-		<row>
-			<div class="col-md-12">
-				<div class="jumbotron">
-					<div class="container">
+	<row>
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<div class="container">
+					<div class="col-md-6">
+						<h1 class="page-title">KnowBeforeUGO</h1>
+					</div>
+					<div class="col-md-6">
 						<ul class="nav nav-tabs" id="main-navigation">
 							<li role="presentation"><button type="button" class="btn btn-default navbar-btn" id="searchButton"><a href="index.html">Search</a></button></li>
 							<li role="presentation"><button type="button" class="btn btn-default navbar-btn"><a href="saved-searches.html">My Searches</a></button></li>
 							<li role="presentation" class="active"><button id="btnSignIn" type="button" class="btn btn-default navbar-btn" onclick="signIn()">Sign in</button>
 								<button type="button" class="btn btn-default navbar-btn" id="btnSignOut" onclick="signOut()">Sign Out</button></li>
 						</ul>
-						<h1 class="page-title">KnowBeforeUGO</h1>
-						<hr>
 					</div>
+					
+					
 				</div>
 			</div>
-		</row>
-		<div class="container">
-			<h2 class="text-center" id="user-name"></h2>
-			<div class="col-md-5">
-				<row>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title" id="section-title">Where do you want to go?</h3>
-						</div>
-						<div class="panel-body" id=form-panel>
-							<form id="location-search">
-								<label for="location"></label>
-								<input type="text" id="city-input" placeholder="City">
-								<input type="text" id="country-input" placeholder="Country">
-							</form>
-							<form id="search-form">
-								<input class="btn btn-primary" id="submitButton" type="submit" value="Search">
-							</form>
+			
+		</div>
+	</row>
+	
+	<div class="container">
+
+		<h2 class="text-center" id="user-name"></h2>
+		<div class="col-md-5">
+			<row>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="section-title">Where do you want to go?</h3>
+					</div>
+					<div class="panel-body" id=form-panel>
+						<form id="location-search">
+							<label for="location"></label>
+							<input type="text" id="city-input" placeholder="City">
+							<input type="text" id="country-input" placeholder="Country">
+						</form>
+						<form id="search-form">
+							<input class="btn btn-primary" id="submitButton" type="submit" value="Search">
+						</form>
+					</div>
+				</div>
+			</row>
+			<!-- Weather Forecast -->
+			<row>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="section-title">Current Weather</h3>
+					</div>
+					<div class="panel-body">
+						<div id="list">
+							<table id="list_dayForecast">Search a location above to see the current weather.</table>
 						</div>
 					</div>
-				</row>
-				<!-- Weather Forecast -->
-				<row>
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title" id="section-title">Current Weather</h3>
-						</div>
-						<div class="panel-body">
-							<div id="list">
-								<table id="list_dayForecast">Search a location above to see the current weather.</table>
-							</div>
-						</div>
-					</div>
-				</row>
-				<row>
+				</div>
+			</row>
+			<row>
 				<!-- Google Map -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -85,63 +93,61 @@
 						<div id="map" style="width:100%;height:400px"></div>
 					</div>
 				</div>
-				</row>
+			</row>
+		</div>
+
+		<div class="col-md-7">
+			<div id="tugo-div">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<h3 class="panel-title" id="section-title">Travel Information</h3>
+					</div>
+					<!-- List group -->
+					<ul class="list-group">
+						<li class="list-group-item">
+							<h3 class="panel-title">Advisories</h3>
+							<div id="advisories-div">Search a location to see the advisories.</div>
+						</li>
+						<li class="list-group-item">
+							<h3 class="panel-title">Crime</h3>
+							<div id="crime-div">Search a location to see the crime.</div>
+						</li>
+						<li class="list-group-item">
+							<h3 class="panel-title">Terrorism</h3>
+							<div id="terrorism-div">Search a location to see the terrorism.</div>
+						</li>
+						<li class="list-group-item">
+							<h3 class="panel-title">Road Safety</h3>
+							<div id="road-safety-div">Search a location to see the road safety.</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 
-			<div class="col-md-7">
-				<div id="tugo-div">
-					<div class="panel panel-default">
-						<!-- Default panel contents -->
-						<div class="panel-heading">
-							<h3 class="panel-title" id="section-title">Travel Information</h3>
-						</div>
-						<!-- List group -->
-						<ul class="list-group">
-							<li class="list-group-item">
-								<h3 class="panel-title">Advisories</h3>
-								<div id="advisories-div">Search a location to see the advisories.</div>
-							</li>
-							<li class="list-group-item">
-								<h3 class="panel-title">Crime</h3>
-								<div id="crime-div">Search a location to see the crime.</div>
-							</li>
-							<li class="list-group-item">
-								<h3 class="panel-title">Terrorism</h3>
-								<div id="terrorism-div">Search a location to see the terrorism.</div>
-							</li>
-							<li class="list-group-item">
-								<h3 class="panel-title">Road Safety</h3>
-								<div id="road-safety-div">Search a location to see the road safety.</div>
-							</li>
-						</ul>
-					</div>
-				</div>
+			<!-- Loading gif for Tugo API -->
+			<div id="loadingDiv">
+				<img src="assets/images/loading.gif" id="loading" alt="page loading">
+			</div>
 
-				<!-- Loading gif for Tugo API -->
-				<div id="loadingDiv">
-					<img src="assets/images/loading.gif" id="loading" alt="page loading">
-				</div>
-
-				<!-- Modal for alerting that a country is not in the database -->
-				<div class="modal" id="noCountryDataModal" tabindex="-1" role="dialog">
-					<div class="modal-dialog" role="document">
-					  <div class="modal-content">
+			<!-- Modal for alerting that a country is not in the database -->
+			<div class="modal" id="noCountryDataModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
 						<div class="modal-header">
-						  <h5 class="modal-title">We're Sorry</h5>
-						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<h5 class="modal-title">We're Sorry</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						  </button>
 						</div>
 						<div class="modal-body">
-						  <p>Data for this country is not available.</p>
+							<p>Data for this country is not available.</p>
 						</div>
 						<div class="modal-footer">
-						  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						</div>
-					  </div>
 					</div>
-				  </div>
-
+				</div>
 			</div>
 
 			<!-- link to javascript files -->
@@ -151,20 +157,19 @@
 			<script src="assets/javascript/firebase_searches.js"></script>
 			<script src="assets/javascript/google_mapsAPI.js"></script>
 
-			<!-- google maps script -->
-			<!-- </script>
-			<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpd3HQ94w26Zyfo7tD1EeRSibk8eYWCVc&callback=initMap">
+		<!-- google maps script -->
+		</script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpd3HQ94w26Zyfo7tD1EeRSibk8eYWCVc&callback=initMap">
+		</script>
+
+		<!-- google places script -->
+		<!-- <script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpd3HQ94w26Zyfo7tD1EeRSibk8eYWCVc&libraries=places&callback=initMap">
 			</script> -->
 
-			<!-- google places script -->
-			<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpd3HQ94w26Zyfo7tD1EeRSibk8eYWCVc&libraries=places&callback=initMap">
-			</script>
-			
-			<!-- link to CSS -->
-			<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-			<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	</body>
+		<!-- link to CSS -->
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</body>
 
 </html>
