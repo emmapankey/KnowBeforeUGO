@@ -33,29 +33,30 @@
 		<div class="col-md-12">
 			<div class="jumbotron">
 				<div class="container">
+					<!-- Begin 6 column which holds page title. Half of jumbotron section. -->
 					<div class="col-md-6">
 						<h1 class="page-title">KnowBeforeUGO</h1>
 					</div>
+					<!-- Begin 6 column section which holds navigation buttons. Half of jumbotron section. -->
 					<div class="col-md-6">
-                            <ul class="nav nav-tabs" id="main-navigation">
-                                <li role="presentation"><button type="button" class="btn btn-default navbar-btn" id="searchButton"><a href="index.html">Home</a></button></li>
-                                <li role="presentation"><button type="button" class="btn btn-default navbar-btn"><a href="saved-searches.html">Searches</a></button></li>
-                                <li role="presentation" class="active"><button id="btnSignIn" type="button" class="btn btn-default navbar-btn" onclick="signIn()">Sign in</button>
-                                    <button type="button" class="btn btn-default navbar-btn" id="btnSignOut" onclick="signOut()">Sign Out</button></li>
-                            </ul>
-                        </div>
-
+						<ul class="nav nav-tabs" id="main-navigation">
+							<li role="presentation"><button type="button" class="btn btn-default navbar-btn" id="searchButton"><a href="index.html">Home</a></button></li>
+							<li role="presentation"><button type="button" class="btn btn-default navbar-btn"><a href="saved-searches.html">Searches</a></button></li>
+							<li role="presentation" class="active"><button id="btnSignIn" type="button" class="btn btn-default navbar-btn" onclick="signIn()">Sign in</button>
+								<button type="button" class="btn btn-default navbar-btn" id="btnSignOut" onclick="signOut()">Sign Out</button></li>
+						</ul>
+					</div>
 				</div>
 			</div>
-
 		</div>
 	</row>
 
 	<div class="container">
-
+		<!-- HTML for welcoming the user after they log in -->
 		<h2 class="text-center" id="user-name"></h2>
 		<div class="col-md-5">
 			<row>
+				<!-- search box - city and country + submit button. -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title" id="section-title">Where do you want to go?</h3>
@@ -72,7 +73,7 @@
 					</div>
 				</div>
 			</row>
-			<!-- Weather Forecast -->
+			<!-- Weather Forecast panel -->
 			<row>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -86,7 +87,7 @@
 				</div>
 			</row>
 			<row>
-				<!-- Google Map -->
+				<!-- Google Map panel -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title" id="section-title">U.S. Embassy</h3>
@@ -106,7 +107,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title" id="section-title">Travel Information</h3>
 					</div>
-					<!-- List group -->
+					<!-- List group of divs to hold travel data after a search is entered + placeholder text. -->
 					<ul class="list-group">
 						<li class="list-group-item">
 							<h3 class="panel-title" id="travelInfoHeaders">Advisories</h3>
