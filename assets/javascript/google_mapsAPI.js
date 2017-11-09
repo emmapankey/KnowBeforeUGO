@@ -1,9 +1,8 @@
-// Initialize map function which is preset to center on the coordinates for Washington, DC
-// function is called in the script located in index.html
+// This function is called in the script located in index.html
 function initMap(){
   var options = {
       zoom:16,
-      center:{lat:38.9072,lng:77.0369}
+      center:{lat:38.9072,lng:-77.0369}
   }
 
   var map = new google.maps.Map(document.getElementById('map'), options);
@@ -29,7 +28,7 @@ function geocodeAddress(geocoder, resultsMap) {
         position: results[0].geometry.location
       });
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      $("#map").html("An invalid search was entered.");
     }
   });
 }
