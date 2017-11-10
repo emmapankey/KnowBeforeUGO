@@ -17,9 +17,6 @@ $(document).ready(function () {
             var city = document.getElementById("city-input").value;
             var country = document.getElementById("country-input").value;
             forecast.getForecast(city + "," + country);
-            if (city == "" | country == "") {
-                return false;
-            }
         });
 
 
