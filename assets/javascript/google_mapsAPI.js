@@ -17,9 +17,8 @@ function initMap(){
 // Captures the city input by a user, geocodes the coordinates for that location, and updates the map to center on those coordinates
 function geocodeAddress(geocoder, resultsMap) {
   var country = $("#country-input").val();
-  var embassy = "US embassy in ";
-  var address = embassy + country;
-  console.log(address);
+  var city = $("#city-input").val();
+  var address = city + ", " + country;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
       resultsMap.setCenter(results[0].geometry.location);
