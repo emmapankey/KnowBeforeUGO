@@ -215,7 +215,7 @@ a:focus {
     }
 }
 
-@media screen and (max-width: 374px) {
+@media screen and (max-width: 376px) {
     #main-navigation {
         margin-bottom: 0px;
         border-bottom: none;
