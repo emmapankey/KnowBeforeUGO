@@ -249,7 +249,7 @@ a:focus {
     }
 }
 
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 320px) {
     #main-navigation {
         margin-bottom: 0px;
         border-bottom: none;
