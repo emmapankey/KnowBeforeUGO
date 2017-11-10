@@ -1,12 +1,11 @@
-// Initialize Firebase
+// On page load hide sign out button if not signed in.
 $(document).ready(function () {
 
     $("#btnSignOut").hide();
-    // $("#user-name").html("");
 
 });
 
-
+// Initialize Firebase
 var config = {
     apiKey: "AIzaSyCmj08LcW2dT_bGaFPFqNcnoID7ZRqzQJw",
     authDomain: "knowbeforugo.firebaseapp.com",
@@ -20,7 +19,10 @@ firebase.initializeApp(config);
 var provider = new firebase.auth.GoogleAuthProvider();
 var user;
 
-firebase.auth().onAuthStateChanged(function(user) {
+// listen for authorization state change.
+// if user is logged in run the showWelcome function.
+// if user is not logged in run the showGoodBuy function
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         console.log("you are logged in");
         showWelcome();
@@ -28,9 +30,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("you arent logged in");
         showGoodBye();
     }
-   });
+});
 
-
+// sign in function w/ error handling.
 function signIn() {
     firebase.auth().signInWithPopup(provider).then(function (result) {
         var token = result.credential.accessToken;
@@ -45,7 +47,7 @@ function signIn() {
     });
 };
 
-
+// sign out function w/ error handling.
 function signOut() {
     firebase.auth().signOut().then(function () {
         showGoodBye();
@@ -57,12 +59,14 @@ function signOut() {
     });
 }
 
+// show welcome message
 function showWelcome() {
     $("#btnSignOut").show();
     $("#btnSignIn").hide();
     $("#user-name").html("Welcome " + user.displayName);
 }
 
+// show goodbye message
 function showGoodBye() {
     $("#btnSignIn").show();
     $("#btnSignOut").hide();
