@@ -10,7 +10,6 @@ $(document).ready(function () {
                 var country = document.getElementById("country-input").value;
                 forecast.getForecast(city + "," + country);
                 return true;
-                clearForms();
             }
         });
 
@@ -21,15 +20,7 @@ $(document).ready(function () {
             if (city == "" | country == "") {
                 return false;
             }
-            clearForms();
         });
-
-        //Clear search field form data
-        function clearForms() {
-            $("#city-input").val('')
-            $("#country-input").val('');
-
-        };
 
 
         //Get forecast from JSON response from the API
