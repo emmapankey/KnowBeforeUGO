@@ -4,7 +4,9 @@ body {
     background-attachment: fixed;
     background-size: cover;
     font-family: 'Raleway', sans-serif;
-    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 #loading {
