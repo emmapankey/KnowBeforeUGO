@@ -1,16 +1,16 @@
 // This function is called in the script located in index.html
-function initMap(){
+function initMap() {
   var options = {
-      zoom:16,
-      center:{lat:38.9072,lng:-77.0369}
+    zoom: 16,
+    center: {lat: 38.9072, lng: -77.0369}
   }
 
   var map = new google.maps.Map(document.getElementById('map'), options);
 
   var geocoder = new google.maps.Geocoder();
 
-  $("#submitButton").on("click", function() {
-      geocodeAddress(geocoder, map);
+  $("#submitButton").on("click", function () {
+    geocodeAddress(geocoder, map);
   });
 }
 
@@ -19,7 +19,7 @@ function geocodeAddress(geocoder, resultsMap) {
   var country = $("#country-input").val();
   var city = $("#city-input").val();
   var address = city + ", " + country;
-  geocoder.geocode({'address': address}, function(results, status) {
+  geocoder.geocode({ 'address': address }, function (results, status) {
     if (status === 'OK') {
       resultsMap.setCenter(results[0].geometry.location);
       var marker = new google.maps.Marker({

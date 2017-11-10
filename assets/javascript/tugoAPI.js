@@ -87,8 +87,7 @@ $(document).ready(function () {
             }
     
             if (matchedCountryID === null) {
-				// Need to finish modal when API server is back up
-                // alert("Data for this country is not available");
+				// Need to finish modal when API server is back up saying "Data for this country is not available"
                 // $("#noCountryDataModal").append(data-backdrop);
                 // $("#noCountryDataModal").append(data-keyboard)
                 // $("#noCountryDataModal").modal({
@@ -144,7 +143,7 @@ $(document).ready(function () {
                 }
             }
     
-            //Need to finish vaccines and food/water once the API server is back up
+            //Need to test vaccines and food/water once the API server is back up
             // if (countryDetails.health !== null) {
             //     if (countryDetails.health.diseasesAndVaccinesInfo != null) {
             //         for (var i = 0; i < countryDetails.health.diseasesAndVaccinesInfo; i++) {
