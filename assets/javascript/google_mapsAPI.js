@@ -27,7 +27,8 @@ function geocodeAddress(geocoder, resultsMap) {
         position: results[0].geometry.location
       });
     } else {
-      $("#map").html("An invalid search was entered.");
+      resultsMap.setCenter({lat: -181, lng: -181});
+   
     }
   });
 }
