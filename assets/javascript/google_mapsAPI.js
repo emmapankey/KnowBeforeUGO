@@ -27,8 +27,8 @@ function geocodeAddress(geocoder, resultsMap) {
         position: results[0].geometry.location
       });
     } else {
+      // supply invalid coordinates
       resultsMap.setCenter({lat: -181, lng: -181});
-   
     }
   });
 }

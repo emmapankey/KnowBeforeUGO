@@ -59,16 +59,14 @@ $(document).ready(function () {
         }
 
         if (matchedCountryID === null) {
-            
-            // $("#noCountryDataModal").append(data-backdrop);
-            // $("#noCountryDataModal").append(data-keyboard);
+            // If the searched country is not found in the database show user input validation modal
             $("#noCountryDataModal").modal({
                 backdrop: true,
                 keyboard: true,
                 focus: true
             })
 
-            $("#noCountryData").modal('show');
+            // clearInputs();
         }
 
         // Add the matched country code to the api query string and load the info for the country searched by the user with another ajax call
@@ -86,6 +84,7 @@ $(document).ready(function () {
                 displayCountryDetails(countryDetails);
             })
         }
+
     }); //end of click event
 
     // Display country advisory information on page
@@ -164,6 +163,8 @@ $(document).ready(function () {
         $("#medical-services-div").append(displayMedicalServicesP);
         displayMedicalServicesP.text(medicalServicesDescription);
 
+        clearInputs();
+
     } // end of displayCountryDetails function
 
     // clears the data displayed from prior searches
@@ -174,6 +175,18 @@ $(document).ready(function () {
         $("#road-safety-div").empty();
         $("#food-water-div").empty();
         $("#medical-services-div").empty();
+    }
+
+    function clearInputs() {      
+        $("#city-input").each(function () {
+        $(this).val("");
+             x=1;
+        });
+
+        $("#country-input").each(function () {
+            $(this).val("");
+            x=1;
+        });       
     }
 
     allCountries();
