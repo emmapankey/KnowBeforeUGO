@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 // Point the server to the route files
-require("./routes/htmlRoutes")(app);
+require("./routes/htmlroutes")(app);
 
 // Starts the server to begin listening
 app.listen(PORT, function () {
