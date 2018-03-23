@@ -70,6 +70,7 @@ function showWelcome() {
 function showGoodBye() {
     $("#btnSignIn").show();
     $("#btnSignOut").hide();
+    $("#user-name").html("Goodbye " + user.displayName);
 }
 
 
