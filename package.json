@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emmapankey/KnowBeforeUGO.git"
+    "url": "git+https://github.com/laurmw6/KnowBeforeUGO.git"
   },
   "author": "emma pankey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/emmapankey/KnowBeforeUGO/issues"
+    "url": "https://github.com/laurmw6/KnowBeforeUGO/issues"
   },
-  "homepage": "https://github.com/emmapankey/KnowBeforeUGO#readme",
+  "homepage": "https://github.com/laurmw6/KnowBeforeUGO#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "path": "^0.12.7"
   }
 }
