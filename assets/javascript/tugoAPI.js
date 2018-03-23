@@ -33,7 +33,6 @@ $(document).ready(function () {
         clearTugoData();
 
         //Capture the country name entered by the user
-        //Find the country searched by the user in the response object of all countries
         var userCountry = $("#country-input").val();
         userCountry = firstLetterToUpperCase(userCountry);
         var matchedCountryID = null;
@@ -49,7 +48,7 @@ $(document).ready(function () {
             return letters.join(" ");
         }
 
-        //Find the country searched by the user in the response object of all countries
+        //Find the country searched by the user in the response object of all countries and save this country's id
         for (var i = 0; i < countries.length; i++) {
             var country = countries[i];
             if (country.englishName === userCountry) {
@@ -66,7 +65,6 @@ $(document).ready(function () {
                 focus: true
             })
 
-            // clearInputs();
         }
 
         // Add the matched country code to the api query string and load the info for the country searched by the user with another ajax call
